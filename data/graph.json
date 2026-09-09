@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {
+      "id": "Article:370(3)",
+      "type": "Article",
+      "value": "370(3)",
+      "chunk_ids": [
+        "7a9a3818-8702-4c16-8b18-f7c827b67b71",
+        "e4f8a6d7-e775-427e-a1ea-730af03b21c2"
+      ]
+    },
+    {
+      "id": "Act:by incorporating therein all the amendments up to the constitution (one hundred and sixth amendment) act, 2023",
+      "type": "Act",
+      "value": "by incorporating therein all the amendments up to the Constitution (One Hundred and Sixth Amendment) Act, 2023",
+      "chunk_ids": [
+        "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+      ]
+    },
+    {
+      "id": "Act:the footnotes below the text indicate the constitution amendment act",
+      "type": "Act",
+      "value": "The footnotes below the text indicate the Constitution Amendment Act",
+      "chunk_ids": [
+        "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+      ]
+    },
+    {
+      "id": "Act:the constitution (one hundred amendment) act, 2015",
+      "type": "Act",
+      "value": "The Constitution (One Hundred Amendment) Act, 2015",
+      "chunk_ids": [
+        "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "Article:370(3)",
+      "target": "Act:by incorporating therein all the amendments up to the constitution (one hundred and sixth amendment) act, 2023",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    },
+    {
+      "source": "Article:370(3)",
+      "target": "Act:the footnotes below the text indicate the constitution amendment act",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    },
+    {
+      "source": "Article:370(3)",
+      "target": "Act:the constitution (one hundred amendment) act, 2015",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    },
+    {
+      "source": "Act:by incorporating therein all the amendments up to the constitution (one hundred and sixth amendment) act, 2023",
+      "target": "Act:the footnotes below the text indicate the constitution amendment act",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    },
+    {
+      "source": "Act:by incorporating therein all the amendments up to the constitution (one hundred and sixth amendment) act, 2023",
+      "target": "Act:the constitution (one hundred amendment) act, 2015",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    },
+    {
+      "source": "Act:the footnotes below the text indicate the constitution amendment act",
+      "target": "Act:the constitution (one hundred amendment) act, 2015",
+      "relation": "related_to",
+      "chunk_id": "7a9a3818-8702-4c16-8b18-f7c827b67b71"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+#!/Users/arjhun_03/Downloads/DGDF-RAG/backend/.venv/bin/python
+import sys
+from scripts.repl import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())

@@ -1,52 +1,68 @@
-# DGDF-RAG — Dynamic Graph-Dense Fusion Retrieval Framework
+# DGDF-RAG — Final Ready Prototype
 
-Final-year-project implementation of **DGDF-RAG: A Dynamic Graph-Dense Fusion Retrieval Framework for Domain-Specific Legal Question Answering**.
+Dynamic Graph-Dense Fusion Retrieval Framework for Domain-Specific Legal Question Answering.
 
 ## Included
 - React + Vite frontend
 - FastAPI backend
-- PDF/DOCX/TXT ingestion
 - Structure-aware legal chunking
-- Dense retrieval
-- Legal entity/relationship graph
-- Dynamic dense + graph fusion
+- Dense TF-IDF retrieval
+- Lexical/reference-aware retrieval
+- Graph-aware retrieval
+- Dynamic fusion strategy
 - Grounded answer generation
-- Evidence/citation panel
-- Graph-path panel
-- Demo mode that works without paid APIs
-- Optional OpenAI, MongoDB, Pinecone and Neo4j integration points
+- Evidence/citation display
+- Swagger API
+- Constitution of India (Santhali / Ol Chiki, as on November 2025) bundled for immediate demo use
+- Article 21 parser/retrieval validation
 
-## Run
+## Mac — first run
+From the extracted project folder:
 
-### Backend
 ```bash
-cd backend
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+./setup_mac.sh
 ```
 
-### Frontend
+Then open two Terminal windows.
+
+Terminal 1:
 ```bash
-cd frontend
-npm install
-npm run dev
+./run_backend.sh
 ```
 
-Open the Vite URL, normally http://localhost:5173.
+Terminal 2:
+```bash
+./run_frontend.sh
+```
 
-Copy `.env.example` to `.env` if you want cloud services. Without an OpenAI key the app uses a deterministic evidence-grounded fallback, so it is still demonstrable on a college laptop.
+Open the frontend URL shown by Vite (normally `http://localhost:5173`).
+Swagger is at `http://127.0.0.1:8000/docs`.
 
-## API
-- GET `/api/health`
-- GET `/api/stats`
-- GET `/api/documents`
-- POST `/api/documents/upload`
-- POST `/api/query`
-- GET `/api/graph`
-- DELETE `/api/documents/{document_id}`
+## Built-in demo
+The setup script automatically indexes the bundled Constitution PDF. You do **not** need to upload it again for the initial demo.
 
-## Academic note
-The application is an educational/research prototype, not legal advice. “Hallucination-free” should be presented as a design objective/risk-reduction goal rather than a mathematical guarantee. The system refuses to fabricate an answer when no evidence is retrieved.
+Try:
+
+> What does Article 21 of the Constitution of India provide?
+
+The prototype deliberately keeps answers grounded in retrieved source text. Without an OpenAI API key, the demo mode shows the retrieved evidence rather than inventing an answer. Add an API key later when you want generated English answers.
+
+## Project validation
+Run:
+
+```bash
+./check_project.sh
+```
+
+The check verifies that Article 21 is exactly one structural chunk on page 48 and that Article 21 retrieval returns that chunk.
+
+## Environment variables
+Copy `.env.example` to `.env` if you want to configure OpenAI or external services later. Pinecone, Neo4j and MongoDB are intentionally left for the next production-integration version.
+
+## Next version
+The next phase can replace/augment the local TF-IDF and JSON storage with:
+- Pinecone for vector retrieval
+- Neo4j for persistent graph traversal
+- MongoDB for document/metadata storage
+- OpenAI or another configured LLM for answer generation
+- Vercel deployment architecture

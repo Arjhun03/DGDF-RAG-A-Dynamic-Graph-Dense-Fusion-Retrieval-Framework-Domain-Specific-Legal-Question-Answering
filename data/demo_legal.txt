@@ -1,5 +1,4 @@
-  ,n 
-  \ THE DEMO EDUCATIONAL ACT, 2026
+THE DEMO EDUCATIONAL ACT, 2026
 
 Section 1. Purpose
 This Act establishes an educational framework for demonstration of the DGDF-RAG system.

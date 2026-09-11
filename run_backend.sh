@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
+set -euo pipefail
 cd "$(dirname "$0")/backend"
-python -m venv .venv 2>/dev/null || true
+if [ ! -d .venv ]; then
+  echo "Virtual environment missing. Run ../setup_mac.sh first."
+  exit 1
+fi
 source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+exec python -m uvicorn app.main:app --reload --port 8000

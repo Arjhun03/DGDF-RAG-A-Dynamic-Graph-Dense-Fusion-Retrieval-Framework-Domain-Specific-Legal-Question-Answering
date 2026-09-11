@@ -202,7 +202,7 @@ class PineconeStore:
                 matches.append(
                     {
                         "id": hit.id,
-                        "score": float(hit.score),
+                        "score": float(hit.score if hit.score is not None else 0.0),
                         "text": fields.get("text", ""),
                         "document": fields.get("document", "Constitution of India"),
                         "document_type": fields.get("document_type", "constitution"),

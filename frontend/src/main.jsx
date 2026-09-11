@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import './styles.css';
 
-const API = 'http://localhost:8000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 const BENCHMARK_DATA = [
   { name: 'Vector RAG (Pinecone Dense Only)', recall: '73.3%', mrr: '65.6%', prec: '30.7%', noEvidence: '0.0%', status: 'Baseline' },

@@ -136,7 +136,7 @@ async def query(req: QueryRequest):
     indexed_chunks = chunks()
     analysis = analyze_query(req.question)
 
-    if not indexed_chunks:
+    if not indexed_chunks and not pinecone_store.is_connected:
         return QueryResponse(
             answer="Please upload at least one legal document first.",
             confidence=0.0,

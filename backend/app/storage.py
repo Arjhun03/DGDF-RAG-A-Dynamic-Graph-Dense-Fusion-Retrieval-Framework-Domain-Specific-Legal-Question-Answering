@@ -1,7 +1,16 @@
 import json
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parents[2] / "data"
+_ROOT_DATA = Path(__file__).resolve().parents[2] / "data"
+_BACKEND_DATA = Path(__file__).resolve().parents[1] / "data"
+
+if _BACKEND_DATA.exists() and (_BACKEND_DATA / "chunks.json").exists():
+    BASE = _BACKEND_DATA
+elif _ROOT_DATA.exists() and (_ROOT_DATA / "chunks.json").exists():
+    BASE = _ROOT_DATA
+else:
+    BASE = _BACKEND_DATA if _BACKEND_DATA.exists() else _ROOT_DATA
+
 BASE.mkdir(parents=True, exist_ok=True)
 
 DOCS_FILE = BASE / "documents.json"
